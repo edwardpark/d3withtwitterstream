@@ -1,7 +1,6 @@
 var IOServer = require('socket.io');
 var io = new IOServer(7000);
 
-
 // Listen for new connections
 io.on('connection', function (socket) {
 

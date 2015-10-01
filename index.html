@@ -2,9 +2,27 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Twitter Application</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </head>
   <body>
 
+
+    </div>
+
+  <script>
+    var socket = io('http://localhost:7000');
+
+    socket.on('connect', function() {
+        console.log('Successful connection to the server.');
+    });
+  </script>
   </body>
 </html>
