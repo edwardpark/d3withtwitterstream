@@ -76,6 +76,7 @@ function twitOnTweet(tweet) {
     if (tweet.coordinates == false) {
         return;
     }
+
     var tweetText = tweet.text.toLowerCase();
     topics.forEach(function(topic) {
         if (tweetText.indexOf(topic.word) !== -1) {
