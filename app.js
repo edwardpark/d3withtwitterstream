@@ -64,9 +64,26 @@ stream.on('warning', function(message) {
 stream.on('limit', function(message) {
     console.log('Twitter limit message:');
     console.log(message)
+    twitStream.stop();
 })
 
 stream.on('disconnect', function(message) {
     console.log('Twitter disconnection message');
     console.log(message);
 });
+
+function twitOnTweet(tweet) {
+    if (tweet.coordinates == false) {
+        return;
+    }
+    var tweetText = tweet.text.toLowerCase();
+    topics.forEach(function(topic) {
+        if (tweetText.indexOf(topic.word) !== -1) {
+            topic.socket.emit('tweet', {
+                id: tweet.id,
+                coordinates: tweet.coordinates,
+                word: topic.word
+            });
+        }
+    });
+}
