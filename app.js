@@ -25,5 +25,11 @@ io.on('connect', function(socket) {
 
         console.log('Adding the topic "' + topic.word + '"');
     });
-
+    
+    socket.on('disconnect', function() {
+      console.log('Client ' + socket.id + ' disconnected.');
+      topics = topics.filter(function(topic) {
+          return topic.socket.id !== socket.id;
+      });
+  });
 });
