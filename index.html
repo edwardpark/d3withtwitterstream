@@ -33,6 +33,8 @@
           var message = $('#m').val();
           socket.emit('add', {word:message});
           $('#m').val('');
+          $('#messages').append($('<li>').text(message));
+
           return false;
         });
 
