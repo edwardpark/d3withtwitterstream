@@ -11,6 +11,11 @@ io.on('connection', function (socket) {
         socket.emit('server-message', {msg: 'Message "' + data.msg + '" received.'});
     });
 
+
+    socket.on('chat message', function(msg){
+      io.emit('chat message', msg);
+    });
+
     socket.on('disconnect', function() {
         console.log('client disconnected.');
     });
