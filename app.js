@@ -2,7 +2,10 @@
 var Twit   = require('twit');
 var  config = require('./authentication.js');
 var T = new Twit(config);
-var stream = T.stream('statuses/sample');
+//var stream = T.stream('statuses/sample');
+
+var subjects =["donuts"];
+var stream = T.stream('statuses/filter', {track: subjects});
 
 // configurating connection
 stream.on('connect', function(request) {
